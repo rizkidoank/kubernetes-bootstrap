@@ -10,5 +10,5 @@ traefik:
 metallb:
   enabled: true
   namespace: kube-system
-  version: 0.9.6
+  version: 0.10.2
     
