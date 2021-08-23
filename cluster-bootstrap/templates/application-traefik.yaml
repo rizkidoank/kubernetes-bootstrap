@@ -1,0 +1,21 @@
+{{- if .Values.traefik.enabled -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: {{ .Values.traefik.namespace }}
+    server: {{ .Values.argocd.cluster }}
+  project: {{ .Values.argocd.project }}
+  source:
+    chart: traefik
+    helm:
+      valueFiles:
+      - values.yaml
+    repoURL: https://helm.traefik.io/traefik
+    targetRevision: 10.3.1
+{{- end }}

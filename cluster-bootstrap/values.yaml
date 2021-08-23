@@ -1,0 +1,7 @@
+argocd:
+  cluster: https://kubernetes.default.svc
+  project: default
+
+traefik:
+  enabled: true
+  namespace: kube-system
