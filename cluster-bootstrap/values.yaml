@@ -6,3 +6,15 @@ traefik:
   enabled: true
   namespace: kube-system
   version: 10.3.1
+
+metallb:
+  enabled: true
+  namespace: kube-system
+  version: 0.9.6
+  parameters:
+    - name: configInline.address-pools
+      value:
+        name: default
+        protocol: layer2
+        addresses:
+        - 192.168.88.20-192.168.88.30
