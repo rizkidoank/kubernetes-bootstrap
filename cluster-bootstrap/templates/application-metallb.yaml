@@ -14,7 +14,13 @@ spec:
   source:
     chart: metallb
     helm:
-      paremeters: {{ .Values.metallb.parameters }}
+      paremeters:
+        - name: configInline.address-pools
+        value:
+          name: default
+          protocol: layer2
+          addresses:
+          - 192.168.88.20-192.168.88.30
       valueFiles:
       - values.yaml
     repoURL: https://metallb.github.io/metallb
