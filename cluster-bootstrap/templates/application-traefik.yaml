@@ -17,5 +17,5 @@ spec:
       valueFiles:
       - values.yaml
     repoURL: https://helm.traefik.io/traefik
-    targetRevision: 10.3.1
+    targetRevision: {{ .Values.traefik.version }}
 {{- end }}

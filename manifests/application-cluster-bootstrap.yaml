@@ -12,7 +12,7 @@ spec:
     helm:
       valueFiles:
       - values.yaml
-    path: cluster-charts
+    path: cluster-bootstrap
     repoURL: https://github.com/rizkidoank/kubernetes-bootstrap.git
     targetRevision: HEAD
   syncPolicy:
