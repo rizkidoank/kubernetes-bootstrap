@@ -15,7 +15,7 @@ spec:
     chart: metallb
     helm:
       paremeters:
-        - name: configInline.address-pools
+      - name: configInline.address-pools
         value:
           name: default
           protocol: layer2
