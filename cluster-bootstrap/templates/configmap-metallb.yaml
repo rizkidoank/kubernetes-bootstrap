@@ -3,5 +3,12 @@ kind: ConfigMap
 metadata:
   namespace: {{ .Values.metallb.namespace }}
   name: config
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
 data:
-  config: {{ .Values.metallb.config }}
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - {{ .Values.metallb.addresses }}
