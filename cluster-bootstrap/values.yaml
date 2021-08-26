@@ -6,6 +6,12 @@ traefik:
   enabled: true
   namespace: kube-system
   version: 10.3.1
+  values: |
+    service:
+    enabled: true
+    type: LoadBalancer
+    spec:
+      loadBalancerIP: "192.168.88.20"
 
 metallb:
   enabled: true
