@@ -11,7 +11,7 @@ spec:
     - match: Host(`traefik.rizkidoank.internal`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
       kind: Rule
       services:
-        - name: api@internal
+        - name: dashboard@internal
           kind: TraefikService
 ---
 apiVersion: traefik.containo.us/v1alpha1
