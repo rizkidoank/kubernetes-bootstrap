@@ -14,8 +14,12 @@ spec:
   source:
     chart: traefik
     helm:
-      values: |-
-        {{ .Values.traefik.values | indent 4 }}
+      values: |
+        service:
+        enabled: true
+        type: LoadBalancer
+        spec:
+          loadBalancerIP: "192.168.88.20"
       valueFiles:
       - values.yaml
     repoURL: https://helm.traefik.io/traefik
