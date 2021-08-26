@@ -21,19 +21,21 @@ metadata:
   namespace: argocd
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
     - kind: Rule
-      match: Host(`argocd.rizkidoank.internal`)
+      match: Host(`argocd.example.com`)
       priority: 10
       services:
         - name: argocd-server
           port: 80
     - kind: Rule
-      match: Host(`argocd.rizkidoank.internal`) && Headers(`Content-Type`, `application/grpc`)
+      match: Host(`argocd.example.com`) && Headers(`Content-Type`, `application/grpc`)
       priority: 11
       services:
         - name: argocd-server
           port: 80
           scheme: h2c
-
+  tls:
+    certResolver: default
+    options: {}
