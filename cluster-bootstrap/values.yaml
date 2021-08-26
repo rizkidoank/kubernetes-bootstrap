@@ -47,11 +47,11 @@ prometheus_stack:
         patch:
           enabled: false
 
-kubernetes_dashboard:
-  enabled: true
-  namespace: kube-system
-  version: 4.6.0
-  values: |
-    protocolHttp: true
-    extraArgs:
-    - --enable-insecure-login
+# kubernetes_dashboard:
+#   enabled: true
+#   namespace: kube-system
+#   version: 4.6.0
+#   values: |
+#     protocolHttp: true
+#     extraArgs:
+#     - --enable-insecure-login
