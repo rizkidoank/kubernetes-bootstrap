@@ -36,3 +36,19 @@ spec:
         - name: argocd-server
           port: 80
           scheme: h2c
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: kubernetes-dashboard
+  namespace: kube-system
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`k8s-dashboard.rizkidoank.internal`)
+      priority: 10
+      services:
+        - name: kubernetes-dashboard
+          port: 443
