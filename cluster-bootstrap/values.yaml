@@ -54,6 +54,4 @@ kubernetes_dashboard:
   values: |
     protocolHttp: true
     extraArgs:
-    - --enable-skip-login
     - --enable-insecure-login
-    - --system-banner="Welcome to Kubernetes"
