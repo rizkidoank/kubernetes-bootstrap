@@ -38,4 +38,5 @@ spec:
           scheme: h2c
   tls:
     certResolver: default
-    options: {}
+    options:
+      name: argocd
