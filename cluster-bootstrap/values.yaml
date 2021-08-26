@@ -40,4 +40,4 @@ prometheus_stack:
   enabled: true
   namespace: monitoring
   version: 18.0.1 
- 
+  values: ""
