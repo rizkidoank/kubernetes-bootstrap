@@ -18,7 +18,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: argocd-server
-  namespace: kube-system
+  namespace: argocd
 spec:
   entryPoints:
     - websecure
