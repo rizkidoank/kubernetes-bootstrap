@@ -52,3 +52,4 @@ spec:
       services:
         - name: kubernetes-dashboard
           port: 443
+          scheme: http
