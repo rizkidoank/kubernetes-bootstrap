@@ -40,4 +40,9 @@ prometheus_stack:
   enabled: true
   namespace: monitoring
   version: 18.0.1 
-  values: ""
+  values: |
+    prometheusOperator:
+      admissionWebhooks:
+        enabled: false
+        patch:
+          enabled: false
