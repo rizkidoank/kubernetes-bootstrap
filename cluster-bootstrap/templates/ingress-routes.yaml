@@ -1,19 +1,19 @@
-# ---
-# apiVersion: traefik.containo.us/v1alpha1
-# kind: IngressRoute
-# metadata:
-#   name: traefik-host-dashboard
-#   namespace: kube-system
-# spec:
-#   entryPoints:
-#     - traefik
-#   routes:
-#     - match: Host(`traefik.rizkidoank.internal`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
-#       kind: Rule
-#       services:
-#         - name: api@internal
-#           kind: TraefikService
-# ---
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-host-dashboard
+  namespace: kube-system
+spec:
+  entryPoints:
+    - traefik
+  routes:
+    - match: Host(`traefik.rizkidoank.internal`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
+      kind: Rule
+      services:
+        - name: api@internal
+          kind: TraefikService
+---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
