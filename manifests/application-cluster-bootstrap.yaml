@@ -16,4 +16,5 @@ spec:
     repoURL: https://github.com/rizkidoank/kubernetes-bootstrap.git
     targetRevision: HEAD
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
