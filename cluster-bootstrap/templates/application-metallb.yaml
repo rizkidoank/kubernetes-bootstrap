@@ -14,9 +14,8 @@ spec:
   source:
     chart: metallb
     helm:
-      parameters:
-      - name: existingConfigMap
-        value: metallb-configmap
+      values: |-
+{{ .Values.metallb.values | indent 8 }}
       valueFiles:
       - values.yaml
     repoURL: https://metallb.github.io/metallb
