@@ -15,7 +15,7 @@ spec:
     chart: traefik
     helm:
       values: |-
-{{ .Values.metallb.values | indent 8 }}
+{{ .Values.traefik.values | indent 8 }}
       valueFiles:
       - values.yaml
     repoURL: https://helm.traefik.io/traefik

@@ -19,8 +19,8 @@ metallb:
   version: 0.10.2
   values: |
     configInline:
-    address-pools:
-    - name: default
-      protocol: layer2
-      addresses:
-      - 192.168.88.20-192.168.88.30
+      address-pools:
+      - name: default
+        protocol: layer2
+        addresses:
+        - 192.168.88.20-192.168.88.30
