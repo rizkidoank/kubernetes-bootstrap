@@ -7,11 +7,22 @@ traefik:
   namespace: kube-system
   version: 10.3.1
   values: |
+    logs:
+      access:
+        enabled: true
+        format: json
     service:
       enabled: true
       type: LoadBalancer
       spec:
         loadBalancerIP: "192.168.88.20"
+    resources:
+      requests:
+        cpu: "100m"
+        memory: "50Mi"
+      limits:
+        cpu: "300m"
+        memory: "150Mi"
 
 metallb:
   enabled: true
