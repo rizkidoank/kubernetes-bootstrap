@@ -17,7 +17,6 @@ metallb:
   enabled: true
   namespace: kube-system
   version: 0.10.2
-  addresses: 192.168.88.20-192.168.88.30
   values: |
     configInline:
     address-pools:
