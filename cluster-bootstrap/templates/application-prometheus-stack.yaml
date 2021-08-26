@@ -1,23 +1,23 @@
-{{- if .Values.prometheus_stack.enabled -}}
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: prometheus-stack
-  namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
-spec:
-  destination:
-    namespace: {{ .Values.prometheus_stack.namespace }}
-    server: {{ .Values.argocd.cluster }}
-  project: {{ .Values.argocd.project }}
-  source:
-    chart: kube-prometheus-stack
-    helm:
-      values: |-
-{{ .Values.prometheus_stack.values | indent 8 }}
-      valueFiles:
-      - values.yaml
-    repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: {{ .Values.prometheus_stack.version }}
-{{- end }}
+# {{- if .Values.prometheus_stack.enabled -}}
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: prometheus-stack
+#   namespace: argocd
+#   finalizers:
+#   - resources-finalizer.argocd.argoproj.io
+# spec:
+#   destination:
+#     namespace: {{ .Values.prometheus_stack.namespace }}
+#     server: {{ .Values.argocd.cluster }}
+#   project: {{ .Values.argocd.project }}
+#   source:
+#     chart: kube-prometheus-stack
+#     helm:
+#       values: |-
+# {{ .Values.prometheus_stack.values | indent 8 }}
+#       valueFiles:
+#       - values.yaml
+#     repoURL: https://prometheus-community.github.io/helm-charts
+#     targetRevision: {{ .Values.prometheus_stack.version }}
+# {{- end }}

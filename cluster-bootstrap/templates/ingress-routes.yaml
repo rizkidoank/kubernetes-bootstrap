@@ -40,16 +40,16 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: kubernetes-dashboard
-  namespace: kube-system
+  name: prometheus-grafana
+  namespace: monitoring
 spec:
   entryPoints:
     - web
   routes:
     - kind: Rule
-      match: Host(`k8s-dashboard.rizkidoank.internal`)
+      match: Host(`grafana.rizkidoank.internal`)
       priority: 10
       services:
-        - name: kubernetes-dashboard
-          port: 443
+        - name: prometheus-stack-grafana
+          port: 80
           scheme: http
