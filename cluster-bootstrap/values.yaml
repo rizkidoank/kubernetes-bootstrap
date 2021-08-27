@@ -47,10 +47,31 @@ prometheus_stack:
         patch:
           enabled: false
 
+postgres:
+  enabled: true
+  namespace: vault
+  version: 10.9.4
+  values: ""
+
 vault:
   enabled: true
-  namespace: kube-system
+  namespace: vault
   version: 0.15.0 
   values: |
     ui:
       enabled: true
+    server:
+      dataStorage:
+        enabled: false
+      standalone:
+        config: |
+          ui = true
+          listener "tcp" {
+            tls_disable = 1
+            address = "[::]:8200"
+            cluster_address = "[::]:8201"
+          }
+          storage "file" {
+            path = "/vault/data"
+          }
+
