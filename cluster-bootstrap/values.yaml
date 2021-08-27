@@ -47,6 +47,12 @@ prometheus_stack:
         patch:
           enabled: false
 
+longhorn:
+  enabled: true
+  namespace: longhorn-system
+  version: 1.1.2
+  values: ""
+
 postgres:
   enabled: false
   namespace: vault
@@ -54,7 +60,7 @@ postgres:
   values: ""
 
 vault:
-  enabled: true
+  enabled: false
   namespace: vault
   version: 0.15.0 
   values: |
