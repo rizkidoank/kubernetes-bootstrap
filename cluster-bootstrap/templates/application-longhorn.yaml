@@ -1,0 +1,23 @@
+{{- if .Values.longhorn.enabled -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: longhorn
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: {{ .Values.longhorn.namespace }}
+    server: {{ .Values.argocd.cluster }}
+  project: {{ .Values.argocd.project }}
+  source:
+    chart: longhorn
+    helm:
+      values: |-
+{{ .Values.longhorn.values | indent 8 }}
+      valueFiles:
+      - values.yaml
+    repoURL: https://charts.longhorn.io
+    targetRevision: {{ .Values.longhorn.version }}
+{{- end }}
