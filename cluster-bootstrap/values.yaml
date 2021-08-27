@@ -51,7 +51,18 @@ longhorn:
   enabled: true
   namespace: longhorn-system
   version: 1.1.2
-  values: ""
+  values: |
+    image:
+      longhorn:
+        engine:
+          repository: longhornio/longhorn-engine
+          tag: v1.2.0-rc2
+        manager:
+          repository: longhornio/longhorn-manager
+          tag: v1.2.0-rc2
+        ui:
+          repository: longhornio/longhorn-ui
+          tag: v1.2.0-rc2
 
 postgres:
   enabled: false
