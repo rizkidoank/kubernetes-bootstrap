@@ -48,7 +48,7 @@ prometheus_stack:
           enabled: false
 
 postgres:
-  enabled: true
+  enabled: false
   namespace: vault
   version: 10.9.4
   values: ""
@@ -63,7 +63,10 @@ vault:
     server:
       dataStorage:
         enabled: false
+      dev:
+        enabled:true
       standalone:
+        enabled: false
         config: |
           ui = true
           listener "tcp" {
