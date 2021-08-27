@@ -46,3 +46,11 @@ prometheus_stack:
         enabled: false
         patch:
           enabled: false
+
+vault:
+  enabled: true
+  namespace: kube-system
+  version: 0.15.0 
+  values: |
+    ui:
+      enabled: true
