@@ -84,6 +84,6 @@ spec:
       match: Host(`longhorn.rizkidoank.internal`)
       priority: 10
       services:
-        - name: longhorn-ui
+        - name: longhorn-frontend
           port: 80
           scheme: http
