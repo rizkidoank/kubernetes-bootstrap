@@ -61,6 +61,12 @@ rook_ceph:
   version: 1.7.2
   values: ""
 
+rook_ceph_cluster:
+  enabled: true
+  namespace: rook-ceph-cluster
+  version: 1.7.2
+  values: ""
+
 postgres:
   enabled: false
   namespace: vault
