@@ -48,7 +48,7 @@ prometheus_stack:
           enabled: false
 
 longhorn:
-  enabled: true
+  enabled: false
   namespace: longhorn-system
   version: 1.1.2
   values: ""
