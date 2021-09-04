@@ -42,6 +42,8 @@ prometheus_stack:
   version: 18.0.1 
   values: |
     prometheusOperator:
+      tls:
+        enabled: false
       admissionWebhooks:
         enabled: false
         patch:

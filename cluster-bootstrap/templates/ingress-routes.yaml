@@ -71,19 +71,19 @@ spec:
           port: 9090
           scheme: http
 ---
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: longhorn
-  namespace: longhorn-system
-spec:
-  entryPoints:
-    - web
-  routes:
-    - kind: Rule
-      match: Host(`longhorn.rizkidoank.internal`)
-      priority: 10
-      services:
-        - name: longhorn-frontend
-          port: 80
-          scheme: http
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: IngressRoute
+# metadata:
+#   name: longhorn
+#   namespace: longhorn-system
+# spec:
+#   entryPoints:
+#     - web
+#   routes:
+#     - kind: Rule
+#       match: Host(`longhorn.rizkidoank.internal`)
+#       priority: 10
+#       services:
+#         - name: longhorn-frontend
+#           port: 80
+#           scheme: http
