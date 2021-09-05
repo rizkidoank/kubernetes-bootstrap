@@ -68,7 +68,7 @@ rook_ceph_cluster:
   values: ""
 
 postgres:
-  enabled: false
+  enabled: true
   namespace: vault
   version: 10.9.4
   values: |
