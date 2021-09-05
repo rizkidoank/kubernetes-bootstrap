@@ -68,7 +68,7 @@ rook_ceph_cluster:
   values: ""
 
 postgres:
-  enabled: true
+  enabled: false
   namespace: vault
   version: 10.9.4
   values: |
@@ -79,7 +79,7 @@ postgres:
       replicationPassword: "postgres-replica"
 
 vault:
-  enabled: false
+  enabled: true
   namespace: vault
   version: 0.15.0 
   values: |
