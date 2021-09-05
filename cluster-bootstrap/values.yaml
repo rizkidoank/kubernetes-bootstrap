@@ -71,7 +71,12 @@ postgres:
   enabled: false
   namespace: vault
   version: 10.9.4
-  values: ""
+  values: |
+    storageClass: ceph-block
+    postgresql:
+      postgresqlUsername: "postgres"
+      postgresqlPassword: "postgres-master"
+      replicationPassword: "postgres-replica"
 
 vault:
   enabled: false
