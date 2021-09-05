@@ -56,13 +56,13 @@ longhorn:
   values: ""
 
 rook_ceph:
-  enabled: true
+  enabled: false
   namespace: rook-ceph
   version: 1.7.2
   values: ""
 
 rook_ceph_cluster:
-  enabled: true
+  enabled: false
   namespace: rook-ceph
   version: 1.7.2
   values: ""
