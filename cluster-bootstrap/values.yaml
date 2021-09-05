@@ -63,7 +63,7 @@ rook_ceph:
 
 rook_ceph_cluster:
   enabled: true
-  namespace: rook-ceph-cluster
+  namespace: rook-ceph
   version: 1.7.2
   values: ""
 
