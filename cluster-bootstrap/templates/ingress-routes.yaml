@@ -1,41 +1,41 @@
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: dashboard
-  namespace: infrastructure
-spec:
-  entryPoints:
-    - web
-  routes:
-    - match: Host(`traefik.rizkidoank.internal`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
-      kind: Rule
-      services:
-        - name: api@internal
-          kind: TraefikService
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: argocd-server
-  namespace: argocd
-spec:
-  entryPoints:
-    - web
-  routes:
-    - kind: Rule
-      match: Host(`argocd.rizkidoank.internal`)
-      priority: 10
-      services:
-        - name: argocd-server
-          port: 80
-    - kind: Rule
-      match: Host(`argocd.rizkidoank.internal`) && Headers(`Content-Type`, `application/grpc`)
-      priority: 11
-      services:
-        - name: argocd-server
-          port: 80
-          scheme: h2c
+#---
+#apiVersion: traefik.containo.us/v1alpha1
+#kind: IngressRoute
+#metadata:
+#  name: dashboard
+#  namespace: infrastructure
+#spec:
+#  entryPoints:
+#    - web
+#  routes:
+#    - match: Host(`traefik.rizkidoank.internal`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
+#      kind: Rule
+#      services:
+#        - name: api@internal
+#          kind: TraefikService
+#---
+#apiVersion: traefik.containo.us/v1alpha1
+#kind: IngressRoute
+#metadata:
+#  name: argocd-server
+#  namespace: argocd
+#spec:
+#  entryPoints:
+#    - web
+#  routes:
+#    - kind: Rule
+#      match: Host(`argocd.rizkidoank.internal`)
+#      priority: 10
+#      services:
+#        - name: argocd-server
+#          port: 80
+#    - kind: Rule
+#      match: Host(`argocd.rizkidoank.internal`) && Headers(`Content-Type`, `application/grpc`)
+#      priority: 11
+#      services:
+#        - name: argocd-server
+#          port: 80
+#          scheme: h2c
 #---
 #apiVersion: traefik.containo.us/v1alpha1
 #kind: IngressRoute
