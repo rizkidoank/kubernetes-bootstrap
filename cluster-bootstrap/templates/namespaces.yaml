@@ -1,53 +1,7 @@
-apiVersion: v1
 kind: Namespace
 metadata:
-  name: monitoring
+  name: infrastructure
   labels:
-    app: monitoring
-  annotations:
-    argocd.argoproj.io/sync-wave: "-1"
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: traefik
-  labels:
-    app: traefik
-  annotations:
-    argocd.argoproj.io/sync-wave: "-1"
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: rook-ceph
-  labels:
-    app: rook-ceph
-  annotations:
-    argocd.argoproj.io/sync-wave: "-1"
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: rook-ceph-cluster
-  labels:
-    app: rook-ceph-cluster
-  annotations:
-    argocd.argoproj.io/sync-wave: "-1"
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: metallb-system
-  labels:
-    app: metallb-system
-  annotations:
-    argocd.argoproj.io/sync-wave: "-1"
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: vault
-  labels:
-    app: vault
+    app: infrastructure
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
