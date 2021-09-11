@@ -25,7 +25,7 @@ traefik:
         memory: "150Mi"
 
 metallb:
-  enabled: true
+  enabled: false
   namespace: infrastructure
   version: 0.10.2
   values: |
