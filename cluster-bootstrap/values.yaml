@@ -4,7 +4,7 @@ argocd:
 
 traefik:
   enabled: true
-  namespace: traefik
+  namespace: infrastructure
   version: 10.3.1
   values: |
     logs:
@@ -26,7 +26,7 @@ traefik:
 
 metallb:
   enabled: true
-  namespace: metallb-system
+  namespace: infrastructure
   version: 0.10.2
   values: |
     configInline:
@@ -37,7 +37,7 @@ metallb:
         - 192.168.88.20-192.168.88.30
 
 prometheus_stack:
-  enabled: true
+  enabled: false
   namespace: monitoring
   version: 18.0.1 
   values: |
@@ -79,7 +79,7 @@ postgres:
       replicationPassword: "postgres-replica"
 
 vault:
-  enabled: true
+  enabled: false
   namespace: vault
   version: 0.15.0 
   values: |

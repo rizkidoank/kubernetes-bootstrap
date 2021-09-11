@@ -3,7 +3,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: dashboard
-  namespace: traefik
+  namespace: infrastructure
 spec:
   entryPoints:
     - web
@@ -36,53 +36,53 @@ spec:
         - name: argocd-server
           port: 80
           scheme: h2c
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: prometheus-grafana
-  namespace: monitoring
-spec:
-  entryPoints:
-    - web
-  routes:
-    - kind: Rule
-      match: Host(`grafana.rizkidoank.internal`)
-      priority: 10
-      services:
-        - name: prometheus-stack-grafana
-          port: 80
-          scheme: http
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: prometheus
-  namespace: monitoring
-spec:
-  entryPoints:
-    - web
-  routes:
-    - kind: Rule
-      match: Host(`prometheus.rizkidoank.internal`)
-      priority: 10
-      services:
-        - name: prometheus-stack-kube-prom-prometheus
-          port: 9090
-          scheme: http
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: rook-ceph-dashboard
-  namespace: rook-ceph-cluster
-spec:
-  entryPoints:
-    - web
-  routes:
-    - kind: Rule
-      match: Host(`ceph.rizkidoank.internal`)
-      priority: 10
-      services:
-        - name: rook-ceph-mgr-dashboard
-          port: 7000
+#---
+#apiVersion: traefik.containo.us/v1alpha1
+#kind: IngressRoute
+#metadata:
+#  name: prometheus-grafana
+#  namespace: monitoring
+#spec:
+#  entryPoints:
+#    - web
+#  routes:
+#    - kind: Rule
+#      match: Host(`grafana.rizkidoank.internal`)
+#      priority: 10
+#      services:
+#        - name: prometheus-stack-grafana
+#          port: 80
+#          scheme: http
+#---
+#apiVersion: traefik.containo.us/v1alpha1
+#kind: IngressRoute
+#metadata:
+#  name: prometheus
+#  namespace: monitoring
+#spec:
+#  entryPoints:
+#    - web
+#  routes:
+#    - kind: Rule
+#      match: Host(`prometheus.rizkidoank.internal`)
+#      priority: 10
+#      services:
+#        - name: prometheus-stack-kube-prom-prometheus
+#          port: 9090
+#          scheme: http
+#---
+#apiVersion: traefik.containo.us/v1alpha1
+#kind: IngressRoute
+#metadata:
+#  name: rook-ceph-dashboard
+#  namespace: rook-ceph-cluster
+#spec:
+#  entryPoints:
+#    - web
+#  routes:
+#    - kind: Rule
+#      match: Host(`ceph.rizkidoank.internal`)
+#      priority: 10
+#      services:
+#        - name: rook-ceph-mgr-dashboard
+#          port: 7000
