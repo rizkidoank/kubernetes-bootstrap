@@ -3,7 +3,7 @@ argocd:
   project: default
 
 traefik:
-  enabled: false
+  enabled: true
   namespace: infrastructure
   version: 10.3.1
   values: |
