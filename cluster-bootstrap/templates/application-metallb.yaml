@@ -20,4 +20,7 @@ spec:
       - values.yaml
     repoURL: https://metallb.github.io/metallb
     targetRevision: {{ .Values.metallb.version }}
+  syncPolicy:
+    automated:
+      prune: true 
 {{- end }}
