@@ -1,4 +1,4 @@
-{{- if .Values.traefik.enabled -}}
+{{- if .Values.metallb.enabled -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -7,6 +7,9 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
+  syncPolicy:
+    automated:
+      prune: true
   destination:
     namespace: {{ .Values.metallb.namespace }}
     server: {{ .Values.argocd.cluster }}
