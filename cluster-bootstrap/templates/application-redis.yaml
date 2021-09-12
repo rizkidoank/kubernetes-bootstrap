@@ -1,0 +1,28 @@
+{{- if .Values.redis.enabled -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: redis
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+  destination:
+    namespace: {{ .Values.redis.namespace }}
+    server: {{ .Values.argocd.cluster }}
+  project: {{ .Values.argocd.project }}
+  source:
+    chart: bitnami/redis
+    helm:
+      values: |-
+{{ .Values.redis.values | indent 8 }}
+      valueFiles:
+      - values.yaml
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: {{ .Values.redis.version }}
+{{- end }}
