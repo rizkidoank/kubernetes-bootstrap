@@ -60,18 +60,18 @@ spec:
           port: 80
           scheme: h2c
 ---
-#apiVersion: traefik.containo.us/v1alpha1
-#kind: IngressRoute
-#metadata:
-#  name: rook-ceph-dashboard
-#  namespace: rook-ceph-cluster
-#spec:
-#  entryPoints:
-#    - web
-#  routes:
-#    - kind: Rule
-#      match: Host(`ceph.rizkidoank.internal`)
-#      priority: 10
-#      services:
-#        - name: rook-ceph-mgr-dashboard
-#          port: 7000
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: longhorn-dashboard
+  namespace: longhorn-system
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`longhorn.rizkidoank.internal`)
+      priority: 10
+      services:
+        - name: longhorn-frontend
+          port: 80
