@@ -41,3 +41,16 @@ longhorn:
   namespace: longhorn-system
   version: 1.1.2
   values: ""
+
+prometheus_stack:
+  enabled: true
+  namespace: infrastructure
+  version: 18.0.1 
+  values: |
+    prometheusOperator:
+      tls:
+        enabled: false
+      admissionWebhooks:
+        enabled: false
+        patch:
+          enabled: false
