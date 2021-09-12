@@ -17,21 +17,6 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: dashboard-pub
-  namespace: infrastructure
-spec:
-  entryPoints:
-    - web
-  routes:
-    - match: Host(`traefik.rizkidoank.com`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
-      kind: Rule
-      services:
-        - name: api@internal
-          kind: TraefikService
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
   name: argocd-server
   namespace: argocd
 spec:
