@@ -1,0 +1,12 @@
+argocd:
+  cluster: https://kubernetes.default.svc
+  project: default
+
+jenkins:
+  enabled: true
+  namespace: default
+  version: 8.0.11
+  values: |
+    persistence:
+      enabled: false
+    jenkinsUser: rizki
