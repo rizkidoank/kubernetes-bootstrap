@@ -56,7 +56,7 @@ prometheus_stack:
           enabled: false
 
 redis:
-  enabled: true
+  enabled: false
   namespace: default
   version: 15.3.2
   values: ""
