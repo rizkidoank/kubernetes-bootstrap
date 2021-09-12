@@ -4,6 +4,8 @@ kind: IngressRoute
 metadata:
   name: dashboard
   namespace: infrastructure
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   entryPoints:
     - web
@@ -19,6 +21,8 @@ kind: IngressRoute
 metadata:
   name: argocd-server
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   entryPoints:
     - web
@@ -42,6 +46,8 @@ kind: IngressRoute
 metadata:
   name: argocd-server-pub
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   entryPoints:
     - web
@@ -65,6 +71,8 @@ kind: IngressRoute
 metadata:
   name: longhorn-dashboard
   namespace: longhorn-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   entryPoints:
     - web
@@ -81,6 +89,8 @@ kind: IngressRoute
 metadata:
  name: prometheus-grafana
  namespace: infrastructure
+ annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
  entryPoints:
    - web
@@ -98,6 +108,8 @@ kind: IngressRoute
 metadata:
  name: prometheus-grafana-pub
  namespace: infrastructure
+ annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
  entryPoints:
    - web
@@ -115,6 +127,8 @@ kind: IngressRoute
 metadata:
  name: prometheus
  namespace: infrastructure
+ annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
  entryPoints:
    - web
