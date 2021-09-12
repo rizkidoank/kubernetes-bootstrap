@@ -7,6 +7,9 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
+  syncPolicy:
+      automated:
+        prune: true
   destination:
     namespace: {{ .Values.longhorn.namespace }}
     server: {{ .Values.argocd.cluster }}

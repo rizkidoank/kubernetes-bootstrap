@@ -36,69 +36,8 @@ metallb:
         addresses:
         - 192.168.88.20-192.168.88.30
 
-prometheus_stack:
-  enabled: false
-  namespace: monitoring
-  version: 18.0.1 
-  values: |
-    prometheusOperator:
-      tls:
-        enabled: false
-      admissionWebhooks:
-        enabled: false
-        patch:
-          enabled: false
-
 longhorn:
-  enabled: false
+  enabled: true
   namespace: longhorn-system
   version: 1.1.2
   values: ""
-
-rook_ceph:
-  enabled: false
-  namespace: rook-ceph
-  version: 1.7.2
-  values: ""
-
-rook_ceph_cluster:
-  enabled: false
-  namespace: rook-ceph
-  version: 1.7.2
-  values: ""
-
-postgres:
-  enabled: false
-  namespace: vault
-  version: 10.9.4
-  values: |
-    storageClass: ceph-block
-    postgresql:
-      postgresqlUsername: "postgres"
-      postgresqlPassword: "postgres-master"
-      replicationPassword: "postgres-replica"
-
-vault:
-  enabled: false
-  namespace: vault
-  version: 0.15.0 
-  values: |
-    ui:
-      enabled: true
-    server:
-      dataStorage:
-        enabled: false
-      dev:
-        enabled:true
-      standalone:
-        enabled: false
-        config: |
-          ui = true
-          listener "tcp" {
-            tls_disable = 1
-            address = "[::]:8200"
-            cluster_address = "[::]:8201"
-          }
-          storage "file" {
-            path = "/vault/data"
-          }
