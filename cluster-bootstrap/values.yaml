@@ -54,9 +54,3 @@ prometheus_stack:
         enabled: false
         patch:
           enabled: false
-
-redis:
-  enabled: false
-  namespace: default
-  version: 15.3.2
-  values: ""
