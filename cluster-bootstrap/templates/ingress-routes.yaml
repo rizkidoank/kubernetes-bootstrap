@@ -141,22 +141,22 @@ spec:
          port: 9090
          scheme: http
 ---
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
- name: vault
- namespace: infrastructure
- annotations:
-    argocd.argoproj.io/sync-wave: "2"
-spec:
- entryPoints:
-   - web
- routes:
-   - kind: Rule
-     match: Host(`vault.rizkidoank.internal`)
-     priority: 10
-     services:
-       - name: vault
-         port: 8200
-         scheme: http
----
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: IngressRoute
+# metadata:
+#  name: vault
+#  namespace: infrastructure
+#  annotations:
+#     argocd.argoproj.io/sync-wave: "2"
+# spec:
+#  entryPoints:
+#    - web
+#  routes:
+#    - kind: Rule
+#      match: Host(`vault.rizkidoank.internal`)
+#      priority: 10
+#      services:
+#        - name: vault
+#          port: 8200
+#          scheme: http
+# ---
