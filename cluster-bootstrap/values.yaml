@@ -42,11 +42,29 @@ longhorn:
   version: 1.1.2
   values: ""
 
-vaulr:
+vault:
   enabled: true
   namespace: infrastructure
   version: 0.16.0
-  values: ""
+  values: |
+    certs:
+      resources:
+        requests:
+          memory: 256Mi
+          cpu: 250m
+        limits:
+          memory: 256Mi
+          cpu: 250m
+    server:
+      resources:
+        requests:
+          memory: 256Mi
+          cpu: 250m
+        limits:
+          memory: 256Mi
+          cpu: 250m
+    ui:
+      enabled: true
 
 prometheus_stack:
   enabled: true
