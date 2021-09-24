@@ -1,8 +1,8 @@
-{{- if .Values.prometheus_stack.enabled -}}
+{{- if .Values.vault.enabled -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus-stack
+  name: vault
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,19 +10,19 @@ metadata:
     argocd.argoproj.io/sync-wave: "2"
 spec:
   syncPolicy:
-    automated:
-      prune: true
+      automated:
+        prune: true
   destination:
-    namespace: {{ .Values.prometheus_stack.namespace }}
+    namespace: {{ .Values.vault.namespace }}
     server: {{ .Values.argocd.cluster }}
   project: {{ .Values.argocd.project }}
   source:
-    chart: kube-prometheus-stack
+    chart: vault
     helm:
       values: |-
-{{ .Values.prometheus_stack.values | indent 8 }}
+{{ .Values.vault.values | indent 8 }}
       valueFiles:
       - values.yaml
-    repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: {{ .Values.prometheus_stack.version }}
+    repoURL: https://helm.releases.hashicorp.com
+    targetRevision: {{ .Values.vault.version }}
 {{- end }}
